@@ -1,2 +1,2 @@
 config SHIELD_QAZLESS
-    def_bool $(shields_list_contains, QAZless)
+    def_bool $(shields_list_contains,QAZless)
