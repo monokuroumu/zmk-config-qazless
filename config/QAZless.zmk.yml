@@ -1,0 +1,8 @@
+file_format: "1"
+id: qazless
+name: QAZless
+type: shield
+url: https://github.com/monokuroumu/
+requires: [seeeduino_xiao_ble]
+features:
+  - keys
