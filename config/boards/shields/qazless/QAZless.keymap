@@ -10,6 +10,7 @@
 / {
 
     behaviors {
+
         td0: tap_dance_0 {
             compatible = "zmk,behavior-tap-dance";
             label = "TAP_DANCE_0";
@@ -47,7 +48,7 @@
 
         default_layer {
             bindings = <
-                &kp Q    &kp W    &kp E    &kp R     &kp T     &kp Y     &kp U     &kp I     &kp O     &kp P
+                &mt &mo FN3 &td0    &kp W    &kp E    &kp R     &kp T     &kp Y     &kp U     &kp I     &kp O     &kp P
                 &kp A    &kp S    &kp D    &kp F     &kp G     &kp H     &kp J     &kp K     &kp L     &mt RSHIFT SEMI
                 &mt  Z    &mt LALT X    &kp C    &mt LGUI V     &kp B     &kp N     &mt RALT M     &lt FN1 COMMA &lt FN2 SPACE
                 >;
