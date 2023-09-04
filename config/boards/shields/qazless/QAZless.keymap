@@ -10,6 +10,7 @@
 / {
 
     behaviors {
+
         td0: tap_dance_0 {
             compatible = "zmk,behavior-tap-dance";
             label = "TAP_DANCE_0";
@@ -21,7 +22,7 @@
         ht0: hold_tap_0 {
             compatible = "zmk,behavior-hold-tap";
             label = "Q_ESC_FN3";
-            #binding-cells = <0>;
+            #binding-cells = <2>;
             tapping-term-ms = <225>;
             flavor = "tap-preferred";
             bindings = <&mo FN3>, <&td0>;
