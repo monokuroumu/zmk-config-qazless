@@ -32,7 +32,7 @@
             label = "TAP_DANCE_2";
             #binding-cells = <0>;
             tapping-term-ms = <185>;
-            bindings = <&kp Z>, <&kp B>;
+            bindings = <&kp Z>, <&kp LC(Z)>;
         };
 
         ht0: hold_tap_0 {
@@ -127,7 +127,7 @@
 
         fn3 {
             bindings = <
-                &trans   &kp C_SLEEP    &kp LG(E)    &none    &kp TILDE   &kp GRAVE    &kp C_PREV    &kp C_PP    &kp C_NEXT    &DEL
+                &trans   &kp C_SLEEP    &kp LG(E)    &none    &kp TILDE   &kp GRAVE    &kp C_PREV    &kp C_PP    &kp C_NEXT    &kp DEL
                 &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_CLR    &none    &none    &none    &none    &kp LG(L)    &none
                 &sLft    &bootloader    &kp C_VOL_DN    &kp C_MUTE    &kp C_VOL_UP    &none    &kp LG(M)    &none    &sRgt
                 >;
