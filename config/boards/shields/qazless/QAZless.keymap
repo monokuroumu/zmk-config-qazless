@@ -69,19 +69,19 @@
     combos {
         compatible = "zmk,combos";
         combo_bkspc {
-            timeout-ms = <50>;
+            timeout-ms = <65>;
             key-positions = <8 9>;
             bindings = <&kp BSPC>;
         };
 
     combo_escepe {
-            timeout-ms = <50>;
+            timeout-ms = <65>;
             key-positions = <0 1>;
             bindings = <&kp ESC>;
         };
 
     combo_undo {
-            timeout-ms = <50>;
+            timeout-ms = <65>;
             key-positions = <20 21>;
             bindings = <&kp LC(Z)>;
         };
@@ -117,6 +117,26 @@
                 , <&macro_release &kp LSHFT>
                 ;
         };
+
+        login: login {
+            label = "ScreeRight";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp LS(N)>
+                , <&macro_tap &kp U>
+                , <&macro_tap &kp M>
+                , <&macro_tap &kp N3>
+                , <&macro_tap &kp N>
+                , <&macro_tap &kp N3>
+                , <&macro_tap &kp R>
+                , <&macro_tap &kp AT>
+                , <&macro_tap &kp ENTER>
+                ;
+
+                Num3n3r@
+
+        };
     };
 
     keymap {
@@ -149,7 +169,7 @@
         fn3 {
             bindings = <
                 &trans   &kp C_SLEEP    &kp LG(E)    &none    &kp TILDE   &kp GRAVE    &kp C_PREV    &kp C_PP    &kp C_NEXT    &kp DEL
-                &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_CLR    &none    &none    &none    &none    &kp LG(L)    &none
+                &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_CLR    &none    &none    &none    &none    &kp LG(L)    &login
                 &sLft    &bootloader    &kp C_VOL_DN    &kp C_MUTE    &kp C_VOL_UP    &none    &kp LG(M)    &none    &sRgt
                 >;
         };
