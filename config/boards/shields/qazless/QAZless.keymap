@@ -19,6 +19,22 @@
             bindings = <&kp Q>, <&kp ESC>;
         };
 
+        td1: tap_dance_0 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_0";
+            #binding-cells = <0>;
+            tapping-term-ms = <185>;
+            bindings = <&kp A>, <&kp TAB>;
+        };
+
+        td2: tap_dance_0 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_0";
+            #binding-cells = <0>;
+            tapping-term-ms = <185>;
+            bindings = <&kp Z>, <&kp LC(Z)>;
+        };
+
         ht0: hold_tap_0 {
             compatible = "zmk,behavior-hold-tap";
             label = "Q_ESC_FN3";
@@ -26,7 +42,25 @@
             tapping-term-ms = <185>;
             flavor = "tap-preferred";
             bindings = <&mo>, <&td0>;
-        };        
+        };    
+
+        ht1: hold_tap_1 {
+            compatible = "zmk,behavior-hold-tap";
+            label = "Q_ESC_FN3";
+            #binding-cells = <0>;
+            tapping-term-ms = <185>;
+            flavor = "tap-preferred";
+            bindings = <&kp LSHIFT>, <&td1>;
+        };   
+
+        ht2: hold_tap_2 {
+            compatible = "zmk,behavior-hold-tap";
+            label = "Q_ESC_FN3";
+            #binding-cells = <0>;
+            tapping-term-ms = <185>;
+            flavor = "tap-preferred";
+            bindings = <&kp LCTRL>, <&td2>;
+        };q 
     };
 
     combos {
@@ -70,8 +104,8 @@
         default_layer {
             bindings = <
                 &ht0 3 0   &kp W    &kp E    &kp R     &kp T     &kp Y     &kp U     &kp I     &kp O     &kp P
-                &kp A    &kp S    &kp D    &kp F     &kp G     &kp H     &kp J     &kp K     &kp L     &mt RSHIFT SEMI
-                &kp Z    &mt LALT X    &kp C    &mt LGUI V     &kp B     &kp N     &mt RALT M     &lt FN1 COMMA &lt FN2 SPACE
+                &ht1    &kp S    &kp D    &kp F     &kp G     &kp H     &kp J     &kp K     &kp L     &mt RSHIFT SEMI
+                &ht2    &mt LALT X    &kp C    &mt LGUI V     &kp B     &kp N     &mt RALT M     &lt FN1 COMMA &lt FN2 SPACE
                 >;
         };
 
@@ -93,9 +127,9 @@
 
         fn3 {
             bindings = <
-                &none    &none    &none    &none    &none    &none    &none    &none    &none    &none
-                &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_CLR    &none    &kp LEFT    &kp UP    &kp DOWN    &kp RIGHT    &none
-                &sLft    &bootloader    &none    &none    &none    &none    &none    &none    &sRgt
+                &trans   &kp C_SLEEP    &kp LG(E)    &none    &kp TILDE   &kp GRAVE    &kp C_PREV    &kp C_PP    &kp C_NEXT    &DEL
+                &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_CLR    &none    &none    &none    &none    &kp LG(L)    &none
+                &sLft    &bootloader    &kp C_VOL_DN    &kp C_MUTE    &kp C_VOL_UP    &none    &kp LG(M)    &none    &sRgt
                 >;
         };
     };
