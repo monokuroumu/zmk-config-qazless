@@ -23,7 +23,7 @@
             compatible = "zmk,behavior-hold-tap";
             label = "Q_ESC_FN3";
             #binding-cells = <2>;
-            tapping-term-ms = <225>;
+            tapping-term-ms = <185>;
             flavor = "tap-preferred";
             bindings = <&mo>, <&td0>;
         };        
@@ -45,7 +45,7 @@
             #binding-cells = <0>;
             bindings
                 = <&macro_press &kp LGUI>
-                , <&macro_press &kp LALT>
+                , <&macro_press &kp LCTRL>
                 , <&macro_tap &kp LEFT>
                 , <&macro_release &kp LSHFT>
                 ;
@@ -57,7 +57,7 @@
             #binding-cells = <0>;
             bindings
                 = <&macro_press &kp LGUI>
-                , <&macro_press &kp LALT>
+                , <&macro_press &kp LCTRL>
                 , <&macro_tap &kp RIGHT>
                 , <&macro_release &kp LSHFT>
                 ;
@@ -100,3 +100,4 @@
         };
     };
 };
+
