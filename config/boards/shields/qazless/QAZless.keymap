@@ -60,7 +60,7 @@
             tapping-term-ms = <185>;
             flavor = "tap-preferred";
             bindings = <&kp LCTRL>, <&td2>;
-        };q 
+        };
     };
 
     combos {
