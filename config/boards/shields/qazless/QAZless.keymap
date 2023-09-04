@@ -47,19 +47,19 @@
         ht1: hold_tap_1 {
             compatible = "zmk,behavior-hold-tap";
             label = "Q_ESC_FN3";
-            #binding-cells = <0>;
+            #binding-cells = <2>;
             tapping-term-ms = <185>;
             flavor = "tap-preferred";
-            bindings = <&kp LSHIFT>, <&td1>;
+            bindings = <&kp>, <&td1>;
         };   
 
         ht2: hold_tap_2 {
             compatible = "zmk,behavior-hold-tap";
             label = "Q_ESC_FN3";
-            #binding-cells = <0>;
+            #binding-cells = <2>;
             tapping-term-ms = <185>;
             flavor = "tap-preferred";
-            bindings = <&kp LCTRL>, <&td2>;
+            bindings = <&kp>, <&td2>;
         };
     };
 
@@ -104,8 +104,8 @@
         default_layer {
             bindings = <
                 &ht0 3 0   &kp W    &kp E    &kp R     &kp T     &kp Y     &kp U     &kp I     &kp O     &kp P
-                &ht1    &kp S    &kp D    &kp F     &kp G     &kp H     &kp J     &kp K     &kp L     &mt RSHIFT SEMI
-                &ht2    &mt LALT X    &kp C    &mt LGUI V     &kp B     &kp N     &mt RALT M     &lt FN1 COMMA &lt FN2 SPACE
+                &ht1 LSHIFT 0  &kp S    &kp D    &kp F     &kp G     &kp H     &kp J     &kp K     &kp L     &mt RSHIFT SEMI
+                &ht2 LCTRL 0   &mt LALT X    &kp C    &mt LGUI V     &kp B     &kp N     &mt RALT M     &lt FN1 COMMA &lt FN2 SPACE
                 >;
         };
 
