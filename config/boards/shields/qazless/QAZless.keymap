@@ -10,14 +10,22 @@
 / {
 
     behaviors {
-
         td0: tap_dance_0 {
             compatible = "zmk,behavior-tap-dance";
             label = "TAP_DANCE_0";
             #binding-cells = <0>;
             tapping-term-ms = <185>;
-            bindings = <&kp N1>, <&kp N2>, <&kp N3>;
+            bindings = <&kp Q>, <&kp ESC>;
         };
+
+        ht0: hold_tap_0 {
+            compatible = "zmk,behavior-hold-tap";
+            label = "Q_ESC_FN3";
+            #binding-cells = <0>;
+            tapping-term-ms = <225>;
+            flavor = "tap-preferred";
+            bindings = <&mo FN3>, <&td0>;
+        };        
     };
 
     combos {
@@ -30,7 +38,7 @@
     };
 
     macros {
-        screen_left: screen_left {
+        sLft: screen_left {
             label = "ScreeLeft";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -41,6 +49,18 @@
                 , <&macro_release &kp LSHFT>
                 ;
         };
+
+        SRgt: screen_right {
+            label = "ScreeRight";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LGUI>
+                , <&macro_press &kp LALT>
+                , <&macro_tap &kp RIGHT>
+                , <&macro_release &kp LSHFT>
+                ;
+        };
     };
 
     keymap {
@@ -48,7 +68,7 @@
 
         default_layer {
             bindings = <
-                &mt (&mo FN3) &td0    &kp W    &kp E    &kp R     &kp T     &kp Y     &kp U     &kp I     &kp O     &kp P
+                &ht0    &kp W    &kp E    &kp R     &kp T     &kp Y     &kp U     &kp I     &kp O     &kp P
                 &kp A    &kp S    &kp D    &kp F     &kp G     &kp H     &kp J     &kp K     &kp L     &mt RSHIFT SEMI
                 &kp Z    &mt LALT X    &kp C    &mt LGUI V     &kp B     &kp N     &mt RALT M     &lt FN1 COMMA &lt FN2 SPACE
                 >;
@@ -74,7 +94,7 @@
             bindings = <
                 &none    &none    &none    &none    &none    &none    &none    &none    &none    &none
                 &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_CLR    &none    &kp LEFT    &kp UP    &kp DOWN    &kp RIGHT    &none
-                &none    &bootloader    &none    &none    &none    &none    &none    &none    &trans
+                &sLft    &bootloader    &none    &none    &none    &none    &none    &none    &sRgt
                 >;
         };
     };
