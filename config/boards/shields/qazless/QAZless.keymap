@@ -32,7 +32,7 @@
             label = "TAP_DANCE_2";
             #binding-cells = <0>;
             tapping-term-ms = <185>;
-            bindings = <&kp Z>, <&kp LC(Z)>;
+            bindings = <&kp Z>, <&kp B>;
         };
 
         ht0: hold_tap_0 {
@@ -104,8 +104,8 @@
         default_layer {
             bindings = <
                 &ht0 3 0   &kp W    &kp E    &kp R     &kp T     &kp Y     &kp U     &kp I     &kp O     &kp P
-                &ht1 LSHIFT 1  &kp S    &kp D    &kp F     &kp G     &kp H     &kp J     &kp K     &kp L     &mt RSHIFT SEMI
-                &ht2 LCTRL 2   &mt LALT X    &kp C    &mt LGUI V     &kp B     &kp N     &mt RALT M     &lt FN1 COMMA &lt FN2 SPACE
+                &ht1 LSHIFT 0  &kp S    &kp D    &kp F     &kp G     &kp H     &kp J     &kp K     &kp L     &mt RSHIFT SEMI
+                &ht2 LCTRL 0   &mt LALT X    &kp C    &mt LGUI V     &kp B     &kp N     &mt RALT M     &lt FN1 COMMA &lt FN2 SPACE
                 >;
         };
 
