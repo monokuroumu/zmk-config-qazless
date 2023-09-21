@@ -134,9 +134,6 @@
             bindings
                 = <&macro_tap &kp LS(N)>
                 ;
-
-                Num3n3r@
-
         };
     };
 
