@@ -1,0 +1,176 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+
+#define DEFAULT 0
+#define FN1 1
+#define FN2 2
+#define FN3 3
+
+/ {
+
+    behaviors { 
+        td0: tap_dance_0 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_0";
+            #binding-cells = <0>;
+            tapping-term-ms = <185>;
+            bindings = <&kp Q>, <&kp ESC>;
+        };
+
+/*
+ *           td1: tap_dance_1 {
+ *            compatible = "zmk,behavior-tap-dance";
+ *            label = "TAP_DANCE_1";
+ *            #binding-cells = <0>;
+ *            tapping-term-ms = <185>;
+ *            bindings = <&kp A>, <&kp TAB>;
+ *        };
+ *
+ *        td2: tap_dance_2 {
+ *            compatible = "zmk,behavior-tap-dance";
+ *            label = "TAP_DANCE_2";
+ *            #binding-cells = <0>;
+ *            tapping-term-ms = <185>;
+ *            bindings = <&kp Z>, <&kp LC(Z)>;
+ *        };
+ *
+ *
+ *       ht0: hold_tap_0 {
+ *           compatible = "zmk,behavior-hold-tap";
+ *           label = "Q_ESC_FN3";
+ *           #binding-cells = <2>;
+ *           tapping-term-ms = <185>;
+ *           flavor = "tap-preferred";
+ *           bindings = <&mo>, <&td0>;
+ *       };    
+ *
+ *
+ *         ht1: hold_tap_1 {
+ *            compatible = "zmk,behavior-hold-tap";
+ *            label = "Q_ESC_FN3";
+ *            #binding-cells = <2>;
+ *            tapping-term-ms = <185>;
+ *            flavor = "tap-preferred";
+ *            bindings = <&kp>, <&td1>;
+ *        };   
+ *
+ *        ht2: hold_tap_2 {
+ *            compatible = "zmk,behavior-hold-tap";
+ *            label = "Q_ESC_FN3";
+ *            #binding-cells = <2>;
+ *           tapping-term-ms = <185>;
+ *            flavor = "tap-preferred";
+ *            bindings = <&kp>, <&td2>;
+ *        };
+ */
+
+          q_esc_mo3: q_esc_mo3 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "Q_ESC_MO3";
+            #binding-cells = <0>;
+            tapping-term-ms = <300>;
+            bindings = 
+                <&lt 3 Q>,
+                <&kp ESC>;
+          };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+        combo_bkspc {
+            timeout-ms = <65>;
+            key-positions = <8 9>;
+            bindings = <&kp BSPC>;
+        };
+
+    combo_escepe {
+            timeout-ms = <65>;
+            key-positions = <0 1>;
+            bindings = <&kp ESC>;
+        };
+
+    combo_undo {
+            timeout-ms = <65>;
+            key-positions = <20 21>;
+            bindings = <&kp LC(Z)>;
+        };
+
+    combo_tab {
+            timeout-ms = <50>;
+            key-positions = <10 11>;
+            bindings = <&kp TAB>;
+        };
+    };
+
+    macros {
+        sLft: screen_left {
+            label = "ScreeLeft";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LGUI &kp LCTRL>
+                , <&macro_tap &kp LEFT>
+                , <&macro_release &kp LGUI &kp LCTRL>
+                ;
+        };
+
+        sRgt: screen_right {
+            label = "ScreeRight";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                 = <&macro_press &kp LGUI &kp LCTRL>
+                , <&macro_tap &kp RIGHT>
+                , <&macro_release &kp LGUI &kp LCTRL>
+                ;
+        };
+
+       /* login: login {
+        *   label = "ScreeRight";
+        *   compatible = "zmk,behavior-macro";
+        *   #binding-cells = <0>;
+        *    bindings
+        *        = <&macro_tap &kp LS(N)>
+        *        ;
+        *};
+        */
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
+            bindings = <
+                &q_esc_mo3   &kp W    &kp E    &kp R     &kp T     &kp Y     &kp U     &kp I     &kp O     &kp P
+                &mt LSHIFT A  &kp S    &kp D    &kp F     &kp G     &kp H     &kp J     &kp K     &kp L     &mt RSHIFT SEMICOLON
+                &mt LCTRL Z   &mt LALT X    &kp C    &mt LGUI V     &kp B     &kp N     &mt RALT M     &lt FN1 COMMA &lt FN2 SPACE
+                >;
+        };
+
+        fn1 {
+            bindings = <
+                &kp EXCL    &kp AT    &kp HASH    &kp DOLLAR     &kp PERCENT     &kp CARET     &kp AMPS     &kp STAR     &kp LPAR     &kp RPAR
+                &kp LSHIFT    &kp S    &kp D    &kp F     &kp G     &kp HOME     &kp PG_UP     &kp PG_DN     &kp END     &kp NUBS
+                &kp LCTRL    &kp X    &kp C     &kp V    &kp B     &kp N     &kp M     &trans    &kp RET
+                >;
+        };
+
+        fn2 {
+            bindings = <
+                &kp N1    &kp N2    &kp N3    &kp N4    &kp N5    &kp N6    &kp N7    &kp N8    &kp N9    &kp N0
+                &kp LSHIFT    &kp MINUS    &kp EQUAL    &kp LBKT    &kp RBKT    &kp LEFT    &kp UP    &kp DOWN    &kp RIGHT    &kp SQT
+                &kp LCTRL    &kp UNDER    &kp PLUS    &kp LBRC    &kp RBRC    &kp COMMA    &kp DOT    &kp SLASH    &trans
+                >;
+        };
+
+        fn3 {
+            bindings = <
+                &trans   &kp C_SLEEP    &kp LG(E)    &none    &kp TILDE   &kp GRAVE    &kp C_PREV    &kp C_PP    &kp C_NEXT    &kp DEL
+                &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_CLR    &none    &none    &none    &none    &kp LG(L)    &trans
+                &sLft    &bootloader    &kp C_VOL_DN    &kp C_MUTE    &kp C_VOL_UP    &none    &kp LG(M)    &none    &sRgt
+                >;
+        };
+    };
+};
+
