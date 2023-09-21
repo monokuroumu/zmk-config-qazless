@@ -124,14 +124,6 @@
             #binding-cells = <0>;
             bindings
                 = <&macro_tap &kp LS(N)>
-                , <&macro_tap &kp U>
-                , <&macro_tap &kp M>
-                , <&macro_tap &kp N3>
-                , <&macro_tap &kp N>
-                , <&macro_tap &kp N3>
-                , <&macro_tap &kp R>
-                , <&macro_tap &kp AT>
-                , <&macro_tap &kp ENTER>
                 ;
 
                 Num3n3r@
