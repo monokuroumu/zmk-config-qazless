@@ -69,8 +69,8 @@
             compatible = "zmk,behavior-tap-dance";
             label = "Q_ESC_MO3";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings =
+            tapping-term-ms = <300>;
+            bindings = 
                 <&lt 3 Q>,
                 <&kp ESC>;
           };
